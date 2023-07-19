@@ -16,6 +16,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.4.0",
     "node": "^16.17.0",
+    "NODE_VERSION": "16.17.0",
     "nodemon": "^2.0.22"
   }
 }
