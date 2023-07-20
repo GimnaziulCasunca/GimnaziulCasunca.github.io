@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const mongoose = require('mongoose')
 const authRouter = require('./authRoutes')
 const path = require('path');
@@ -24,6 +25,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'GimnaziulCasunca\FrontGimnaziulCasunca\build', 'index.html'));
 });
 
+app.use(cors());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://servergc.onrender.com/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
