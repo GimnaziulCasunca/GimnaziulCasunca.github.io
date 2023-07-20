@@ -7,7 +7,7 @@
         "function": "showelev"
       },
       {
-        "source": "/index",
+        "source": "**",
         "destination": "/index.html"
       }
     ]
