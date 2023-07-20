@@ -5,7 +5,6 @@ const path = require('path');
 const PORT = process.env.PORT || 3001
 const MONGODB_URI = `mongodb+srv://user:user123@atlascluster.6aobwop.mongodb.net/GimnaziulCasunca?retryWrites=true&w=majority`
 const app = express()
-const cors = require('cors');
 
 app.get('/', (request, response) => {
     response.send('<h2>Backend Work<h2>')
@@ -16,7 +15,6 @@ app.get('/hello', (request, response) => {
 })
 
 app.use(express.json())
-app.use(cors())
 
 app.use('/', authRouter)
 
