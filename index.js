@@ -24,6 +24,13 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'GimnaziulCasunca\FrontGimnaziulCasunca\build', 'index.html'));
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://gimnaziu-casunca.web.app.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 const start = async () => {
   try{
     await mongoose.connect(MONGODB_URI)
