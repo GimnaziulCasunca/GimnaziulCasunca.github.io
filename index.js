@@ -10,7 +10,10 @@ const app = express()
 app.get('/', (request, response) => {
     response.send('<h2>Backend Work<h2>')
 })
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://gimnaziucasunca.web.app');
+  next();
+});
 app.get('/hello', (request, response) => {
   response.send('<h2>Hello from backend<h2>')
 })
