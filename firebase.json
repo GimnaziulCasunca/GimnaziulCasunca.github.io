@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": "build",
+    "rewrites": [
+      {
+        "source": "/elev",
+        "function": "showelev"
+      },
+      {
+        "source": "/index",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
