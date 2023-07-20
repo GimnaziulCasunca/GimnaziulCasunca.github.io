@@ -1,11 +1,12 @@
 {
   "hosting": {
-    "public": "build",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
-      {
-        "source": "/elev",
-        "function": "showelev"
-      },
       {
         "source": "**",
         "destination": "/index.html"
