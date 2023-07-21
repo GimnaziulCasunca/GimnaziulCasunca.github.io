@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3001
 const MONGODB_URI = `mongodb+srv://user:user123@atlascluster.6aobwop.mongodb.net/GimnaziulCasunca?retryWrites=true&w=majority`
 const app = express()
-global.url = require('url');
+const functions = require("firebase-functions");
 
 app.get('/', (request, response) => {
     response.send('<h2>Backend Work<h2>')
@@ -22,6 +22,8 @@ app.use(cors());
 
 app.use('/', authRouter)
 
+
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://band-fuyo.onrender.com/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -32,13 +34,7 @@ app.use((req, res, next) => {
 const start = async () => {
   try{
     await mongoose.connect(MONGODB_URI)
-    app.use(cors());
-    app.use((req, res, next) => {
-      res.setHeader('Access-Control-Allow-Origin', 'https://band-fuyo.onrender.com/');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-      next();
-    });
+    
     app.listen(PORT, ()=>console.log(`server work on port ${PORT}`))
   }catch(e){
     console.log(e)
@@ -49,3 +45,4 @@ const start = async () => {
 start()
 
 module.exports = app
+exports.authRouter = functions.region("us-central1").https.onRequest(app);
