@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3001
 const MONGODB_URI = `mongodb+srv://user:user123@atlascluster.6aobwop.mongodb.net/GimnaziulCasunca?retryWrites=true&w=majority`
 const app = express()
-const functions = require("firebase-functions");
+const onRequest = require("firebase-functions/v2/https");
 
 app.get('/', (request, response) => {
     response.send('<h2>Backend Work<h2>')
@@ -43,5 +43,4 @@ const start = async () => {
 
 start()
 
-module.exports = app
-exports.authRouter = functions.region("us-central1").https.onRequest(app);
+module.exports = onRequest(app);
