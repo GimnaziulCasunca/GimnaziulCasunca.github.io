@@ -11,7 +11,7 @@ app.get('/', (request, response) => {
     response.send('<h2>Backend Work<h2>')
 })
 
-app.get('/hello', (request, response) => {
+app.get('/api', (request, response) => {
   response.send('<h2>Hello from backend!<h2>')
 })
 
