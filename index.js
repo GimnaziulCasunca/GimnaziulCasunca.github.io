@@ -17,8 +17,7 @@ app.get('/hello', (request, response) => {
 
 app.use(express.json())
 
-
-app.use('/', authRouter)
+app.use(cors(), authRouter)
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://band-fuyo.onrender.com/');
