@@ -6,6 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3001
 const MONGODB_URI = `mongodb+srv://user:user123@atlascluster.6aobwop.mongodb.net/GimnaziulCasunca?retryWrites=true&w=majority`
 const app = express()
+const hostname = 'https://servergc.onrender.com'
 
 app.get('/', (request, response) => {
     response.send('<h2>Backend Work<h2>')
@@ -32,7 +33,13 @@ const start = async () => {
   try{
     await mongoose.connect(MONGODB_URI)
     app.use(cors());
-    app.listen(PORT, ()=>console.log(`server work on port ${PORT}`))
+    app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', 'https://band-fuyo.onrender.com/');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      next();
+    });
+    app.listen(PORT,hostname , ()=>console.log(`server work on port ${PORT}`))
   }catch(e){
     console.log(e)
   }
