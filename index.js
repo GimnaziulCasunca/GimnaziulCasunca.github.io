@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 const authRouter = require('./authRoutes')
 const path = require('path');
-const PORT = process.env.REACT_APP_API_HOST || 'https://servergc.onrender.com/'
+const PORT = process.env.REACT || 3001
 const MONGODB_URI = `mongodb+srv://user:user123@atlascluster.6aobwop.mongodb.net/GimnaziulCasunca?retryWrites=true&w=majority`
 const app = express()
 const { onRequest } = require('firebase-functions/v2/https');
