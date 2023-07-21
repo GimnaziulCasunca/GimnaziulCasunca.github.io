@@ -12,7 +12,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/hello', (request, response) => {
-  response.send('<h2>Hello from backend<h2>')
+  response.send('<h2>Hello from backend!<h2>')
 })
 
 app.use(express.json())
