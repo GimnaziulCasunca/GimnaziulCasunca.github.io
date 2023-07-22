@@ -22,10 +22,8 @@ app.use(cors());
 
 app.use('/', authRouter)
 
-
-
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://band-fuyo.onrender.com/');
+  res.setHeader('Access-Control-Allow-Origin', 'https://gimnaziucasunca.web.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
