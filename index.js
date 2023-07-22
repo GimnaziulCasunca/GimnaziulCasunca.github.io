@@ -29,6 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use(cors({ origin: 'https://gimnaziucasunca.web.app' }));
 
 const start = async () => {
