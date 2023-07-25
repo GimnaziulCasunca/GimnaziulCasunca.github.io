@@ -158,7 +158,7 @@ class authController{
       sum = parseFloat(sum);
       sum = toFixed(sum);
     
-      return sum
+      return sum;
     }
     
     try {
