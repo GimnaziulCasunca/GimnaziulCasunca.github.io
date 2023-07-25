@@ -146,22 +146,17 @@ class authController{
         return 0; 
       }
       let sum = 0;
-
       if (numbers) {
         for (var i = 0; i < numbers.length; i++) {
-          sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
+          sum += parseInt(numbers[i]); 
         }
-        sum /= i; // Calculate the average
+        sum /= i;
       }
-
-      sum = parseFloat(sum);
-      sum = toFixed(sum); // Assuming toFixed is a valid function
-
       return sum;
     }
     
     try {
-      const oldStudents = await Elev.find(); // Get all students from the old database
+      const oldStudents = await Elev.find(); 
       
       if (!oldStudents || oldStudents.length === 0) {
         return res.status(404).json({ message: 'No students found in the old database' });
@@ -526,10 +521,6 @@ async getElevi2(req, res){
           }
           sum /= i; // Calculate the average
         }
-      
-        sum = parseFloat(sum);
-        sum = toFixed(sum); // Assuming toFixed is a valid function
-
         return sum;
       }
       
