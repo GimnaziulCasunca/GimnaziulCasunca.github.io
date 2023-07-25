@@ -154,10 +154,7 @@ class authController{
         }
         sum /= i;  
       }
-
-      sum = parseFloat(sum);
-      sum = toFixed(sum);
-    
+  
       return sum
     }
     
@@ -525,10 +522,9 @@ async getElevi2(req, res){
             sum += parseInt(numbers[i]); 
           }
           sum /= i;
-          sum = parseFloat(sum);
         }
       
-        return toFixed(sum);
+        return sum;
       }
       
       try {
