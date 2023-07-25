@@ -140,28 +140,30 @@ class authController{
  
 
   async addMed(req, res) {
-   
     async function GetMedia(str) {
       if (!str) {
         return 0; 
       }
+      let numberPattern = /\d+/g; 
+      let numbers = str.match(numberPattern); 
       let sum = 0;
+
       if (numbers) {
         for (var i = 0; i < numbers.length; i++) {
-          sum += parseInt(numbers[i]); 
+          sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
         }
-        sum /= i;
+        sum /= i; // Calculate the average
       }
       return sum;
     }
     
     try {
-      const oldStudents = await Elev.find(); 
+      const oldStudents = await Elev.find(); // Get all students from the old database
       
       if (!oldStudents || oldStudents.length === 0) {
         return res.status(404).json({ message: 'No students found in the old database' });
       }
-  
+      
       for (const oldStudent of oldStudents) {
         const existingStudent = await ElevM1.findOne({ IDNP: oldStudent.IDNP }); // Check if student already exists in the new database
 
@@ -512,20 +514,24 @@ async getElevi2(req, res){
           return 0; 
         }
         let numberPattern = /\d+/g; 
-        let numbers = str.match(numberPattern); // Extract all numbers from the string
+        let numbers = str.match(numberPattern);
         let sum = 0;
 
         if (numbers) {
           for (var i = 0; i < numbers.length; i++) {
-            sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
+            sum += parseInt(numbers[i]); 
           }
-          sum /= i; // Calculate the average
+          sum /= i;
+          sum = parseFloat(sum);
+          sum = toFixed(sum); // Assuming toFixed is a valid function
+
         }
         return sum;
+        
       }
       
       try {
-        const oldStudents = await Elev2.find(); // Get all students from the old database
+        const oldStudents = await Elev2.find(); 
         
         if (!oldStudents || oldStudents.length === 0) {
           return res.status(404).json({ message: 'No students found in the old database' });
