@@ -154,7 +154,8 @@ class authController{
         }
         sum = parseFloat(sum);
         sum /= i; // Calculate the average
-        sum = toFixed(sum);
+        sum = sum.toString();
+        sum = sum.slice(0, (sum.indexOf(".")) + 2 + 1);
       }
       return sum;
     }
