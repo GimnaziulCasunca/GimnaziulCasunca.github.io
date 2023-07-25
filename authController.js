@@ -519,9 +519,11 @@ async getElevi2(req, res){
         var sum = 0;
         if (numbers) {
           for (var i = 0; i < numbers.length; i++) {
-            sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
+            sum += parseInt(numbers[i]); 
           }
           sum /= i;
+          parseFloat(sum);
+          toFixed(sum); 
         }
       
         return sum;
