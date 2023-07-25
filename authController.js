@@ -155,7 +155,7 @@ class authController{
         sum /= i;
       }
     
-      return sum;
+      return toFixed(sum);
     }
     
     try {
@@ -524,7 +524,7 @@ async getElevi2(req, res){
           sum /= i;
         }
       
-        return sum;
+        return toFixed(sum);
       }
       
       try {
