@@ -522,8 +522,8 @@ async getElevi2(req, res){
             sum += parseInt(numbers[i]); 
           }
           sum /= i;
-          parseFloat(sum);
-          toFixed(sum); 
+          sum = parseFloat(sum);
+          sum = toFixed(sum); 
         }
       
         return sum;
