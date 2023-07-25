@@ -152,10 +152,11 @@ class authController{
         for (var i = 0; i < numbers.length; i++) {
           sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
         }
-        sum /= i; // Calculate the average
         sum = parseFloat(sum);
+        sum /= i; // Calculate the average
+        sum = toFixed(sum);
       }
-      return toFixed(sum);
+      return sum;
     }
     
     try {
@@ -522,10 +523,12 @@ async getElevi2(req, res){
           for (var i = 0; i < numbers.length; i++) {
             sum += parseInt(numbers[i]); 
           }
-          sum /= i;
           sum = parseFloat(sum);
+          sum /= i;
+          sum = toFixed(sum);
+
         }
-        return toFixed(sum);
+        return sum;
         
       }
       
