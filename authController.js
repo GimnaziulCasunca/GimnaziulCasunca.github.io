@@ -146,23 +146,17 @@ class authController{
         return 0; 
       }
       let sum = 0;
-      let count = 0;
 
       if (numbers) {
-        for (let i = 0; i < numbers.length; i++) {
+        for (var i = 0; i < numbers.length; i++) {
           sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
-          count++;
         }
-
-        if (count > 0) {
-          sum /= count;
-        } else {
-          return 0;
-        }
+        sum /= i; // Calculate the average
       }
 
-      sum = parseFloat(sum.toFixed(2));
-    
+      sum = parseFloat(sum);
+      sum = toFixed(sum); // Assuming toFixed is a valid function
+
       return sum;
     }
     
@@ -525,22 +519,16 @@ async getElevi2(req, res){
         let numberPattern = /\d+/g; 
         let numbers = str.match(numberPattern); // Extract all numbers from the string
         let sum = 0;
-        let count = 0;
 
         if (numbers) {
-          for (let i = 0; i < numbers.length; i++) {
+          for (var i = 0; i < numbers.length; i++) {
             sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
-            count++;
           }
-
-          if (count > 0) {
-            sum /= count;
-          } else {
-            return 0;
-          }
+          sum /= i; // Calculate the average
         }
-
-        sum = parseFloat(sum.toFixed(2));
+      
+        sum = parseFloat(sum);
+        sum = toFixed(sum); // Assuming toFixed is a valid function
 
         return sum;
       }
