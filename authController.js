@@ -152,7 +152,6 @@ class authController{
         for (var i = 0; i < numbers.length; i++) {
           sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
         }
-        sum = parseFloat(sum);
         sum /= i; // Calculate the average
         sum = sum.toString();
         sum = sum.slice(0, (sum.indexOf(".")) + 2 + 1);
