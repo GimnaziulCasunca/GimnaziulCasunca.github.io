@@ -153,6 +153,8 @@ class authController{
           sum += parseInt(numbers[i]); // Convert each number to an integer and add to the sum
         }
         sum /= i;
+        sum = parseFloat(sum);
+        sum = toFixed(sum); 
       }
     
       return sum;
