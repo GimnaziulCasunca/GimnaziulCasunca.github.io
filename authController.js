@@ -108,11 +108,94 @@ class authController{
     async ClearDB (req, res) {
       
       try {
-     
-        await Elev.deleteMany();
-        await Elev2.deleteMany();
-        await ElevM1.deleteMany();
-        await ElevM2.deleteMany();
+
+        const students = await Elev.find();
+        for (const student of students) {
+          if (student.Class < 9) {
+            student.Class += 1;
+            student.Romana = null;
+            student.Engleza = null;
+            student.Rusa = null;
+            student.Mate = null;
+            student.Istoria = null;
+            student.Geografia = null;
+            student.Biologia = null;
+            student.Fizica = null;
+            student.Chimia = null;
+            student.Info = null;
+            student.Stiinte = null;
+            student.Optional = null;
+            await student.save();
+          } else if (student.Class === 9) {
+            await Elev.deleteOne(student);
+          }
+        }
+    
+        const students2 = await Elev2.find();
+        for (const student of students2) {
+          if (student.Class < 9) {
+            student.Class += 1;
+            student.Romana = null;
+            student.Engleza = null;
+            student.Rusa = null;
+            student.Mate = null;
+            student.Istoria = null;
+            student.Geografia = null;
+            student.Biologia = null;
+            student.Fizica = null;
+            student.Chimia = null;
+            student.Info = null;
+            student.Stiinte = null;
+            student.Optional = null;
+            await student.save();
+          } else if (student.Class === 9) {
+            await Elev2.deleteOne(student);
+          }
+        }
+    
+        const studentsM1 = await ElevM1.find();
+        for (const student of studentsM1) {
+          if (student.Class < 9) {
+            student.Class += 1;
+            student.Romana = null;
+            student.Engleza = null;
+            student.Rusa = null;
+            student.Mate = null;
+            student.Istoria = null;
+            student.Geografia = null;
+            student.Biologia = null;
+            student.Fizica = null;
+            student.Chimia = null;
+            student.Info = null;
+            student.Stiinte = null;
+            student.Optional = null;
+            await student.save();
+          } else if (student.Class === 9) {
+            await ElevM1.deleteOne(student);
+          }
+        }
+    
+        const studentsM2 = await ElevM2.find();
+        for (const student of studentsM2) {
+          if (student.Class < 9) {
+            student.Class += 1;
+            student.Romana = null;
+            student.Engleza = null;
+            student.Rusa = null;
+            student.Mate = null;
+            student.Istoria = null;
+            student.Geografia = null;
+            student.Biologia = null;
+            student.Fizica = null;
+            student.Chimia = null;
+            student.Info = null;
+            student.Stiinte = null;
+            student.Optional = null;
+            await student.save();
+          } else if (student.Class === 9) {
+            await ElevM2.deleteOne(student);
+          }
+        }
     
         res.json({ message: 'Database cleared successfully' });
       } catch (error) {
