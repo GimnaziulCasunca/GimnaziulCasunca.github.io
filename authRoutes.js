@@ -27,7 +27,7 @@ router.put('/modstud/:idnp', controller.postElev)
 router.put('/modstud2/:idnp', controller.postElev2)
 router.delete('/delstud/:idnp', controller.deleteElev)
 router.delete('/delstud2/:idnp', controller.deleteElev2)
-router.delete('/cleardata', controller.ClearDB)
+router.patch('/cleardata', controller.ClearDB)
 
 
 module.exports = router

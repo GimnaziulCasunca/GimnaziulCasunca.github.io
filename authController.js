@@ -195,7 +195,7 @@ class authController{
             await ElevM2.deleteOne(student);
           }
         }
-    
+        console.log("ok")
         res.json({ message: 'Database cleared successfully' });
       } catch (error) {
         console.error('Error clearing database:', error);
