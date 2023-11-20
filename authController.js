@@ -108,7 +108,6 @@ class authController{
     async ClearDB (req, res) {
       
       try {
-
         const students = await Elev.find();
         for (const student of students) {
           if (student.Class < 9) {
