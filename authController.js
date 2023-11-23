@@ -219,7 +219,6 @@ class authController{
         res.status(500).json({ error: 'Server error' });
       }
     };
-    
 
     //   ------------------------------------------------------------
    async addstudent (req, res) {
@@ -301,12 +300,11 @@ class authController{
         const geografiaMedia = await GetMedia(oldStudent.Geografia);
         const chimiaMedia = await GetMedia(oldStudent.Chimia);
         const fizicaMedia = await GetMedia(oldStudent.Fizica);
-        const Ed_FizMedia = await GetMedia(oldStudent.Ed_Fiz);
+        const edFizMedia = await GetMedia(oldStudent.Ed_Fiz);
         const TehnologicaMedia = await GetMedia(oldStudent.Tehnologica);
         const MuzicaMedia = await GetMedia(oldStudent.Muzica);
         const PlasticaMedia = await GetMedia(oldStudent.Plastica);
         const MSVMedia = await GetMedia(oldStudent.MSV);
-        const edFizMedia = await GetMedia(oldStudent.Ed_Fiz);
         const francezaMedia = await GetMedia(oldStudent.Stiinte);
         const englezaMedia = await GetMedia(oldStudent.Engleza);
         const biologiaMedia = await GetMedia(oldStudent.Biologia);
