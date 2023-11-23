@@ -117,6 +117,11 @@ class authController{
             student.Geografia = null;
             student.Biologia = null;
             student.Fizica = null;
+            student.Ed_Fiz = null;
+            student.Tehnologica = null;
+            student.Muzica = null;
+            student.Plastica = null;
+            student.MSV = null;
             student.Chimia = null;
             student.Info = null;
             student.Stiinte = null;
@@ -139,6 +144,11 @@ class authController{
             student.Geografia = null;
             student.Biologia = null;
             student.Fizica = null;
+            student.Ed_Fiz = null;
+            student.Tehnologica = null;
+            student.Muzica = null;
+            student.Plastica = null;
+            student.MSV = null;
             student.Chimia = null;
             student.Info = null;
             student.Stiinte = null;
@@ -161,6 +171,11 @@ class authController{
             student.Geografia = null;
             student.Biologia = null;
             student.Fizica = null;
+            student.Ed_Fiz = null;
+            student.Tehnologica = null;
+            student.Muzica = null;
+            student.Plastica = null;
+            student.MSV = null;
             student.Chimia = null;
             student.Info = null;
             student.Stiinte = null;
@@ -183,6 +198,11 @@ class authController{
             student.Geografia = null;
             student.Biologia = null;
             student.Fizica = null;
+            student.Ed_Fiz = null;
+            student.Tehnologica = null;
+            student.Muzica = null;
+            student.Plastica = null;
+            student.MSV = null;
             student.Chimia = null;
             student.Info = null;
             student.Stiinte = null;
@@ -204,12 +224,12 @@ class authController{
     //   ------------------------------------------------------------
    async addstudent (req, res) {
     try {
-        const {IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
+        const {IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Tehnologica, Muzica, Plastica, MSV, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
                   const existingStudent = await Elev.findOne({IDNP});
                   if (existingStudent) {
                     return res.status(400).json({ error: 'Student '+`${Name+' '+Surname}` +' with idnp '+ `${IDNP}` + ' already exists '  });
                   }
-                  const student = new Elev({IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional});
+                  const student = new Elev({IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Tehnologica, Muzica, Plastica, MSV, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional});
                   await student.save();
                   return res.json({message: "Elev succes aded !!!"})
     }catch (error) {
@@ -260,6 +280,10 @@ class authController{
         existingStudent.Chimia = await GetMedia(oldStudent.Chimia);
         existingStudent.Fizica = await GetMedia(oldStudent.Fizica);
         existingStudent.Ed_Fiz = await GetMedia(oldStudent.Ed_Fiz);
+        existingStudent.Tehnologica = await GetMedia(oldStudent.Tehnologica);
+        existingStudent.Muzica = await GetMedia(oldStudent.Muzica);
+        existingStudent.Plastica = await GetMedia(oldStudent.Plastica);
+        existingStudent.MSV = await GetMedia(oldStudent.MSV);
         existingStudent.Stiinte = await GetMedia(oldStudent.Stiinte);
         existingStudent.Engleza = await GetMedia(oldStudent.Engleza);
         existingStudent.Biologia = await GetMedia(oldStudent.Biologia);
@@ -277,6 +301,11 @@ class authController{
         const geografiaMedia = await GetMedia(oldStudent.Geografia);
         const chimiaMedia = await GetMedia(oldStudent.Chimia);
         const fizicaMedia = await GetMedia(oldStudent.Fizica);
+        const Ed_FizMedia = await GetMedia(oldStudent.Ed_Fiz);
+        const TehnologicaMedia = await GetMedia(oldStudent.Tehnologica);
+        const MuzicaMedia = await GetMedia(oldStudent.Muzica);
+        const PlasticaMedia = await GetMedia(oldStudent.Plastica);
+        const MSVMedia = await GetMedia(oldStudent.MSV);
         const edFizMedia = await GetMedia(oldStudent.Ed_Fiz);
         const francezaMedia = await GetMedia(oldStudent.Stiinte);
         const englezaMedia = await GetMedia(oldStudent.Engleza);
@@ -297,6 +326,10 @@ class authController{
           Chimia: chimiaMedia,
           Fizica: fizicaMedia,
           Ed_Fiz: edFizMedia,
+          Tehnologica: TehnologicaMedia,
+          Muzica: MuzicaMedia,
+          Plastica: PlasticaMedia,
+          MSV: MSVMedia,
           Stiinte: francezaMedia,
           Engleza: englezaMedia,
           Biologia: biologiaMedia,
@@ -318,7 +351,7 @@ class authController{
   async postElev(req, res) {
     try {
       const { idnp } = req.params;
-      const { Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
+      const { Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Tehnologica, Muzica, Plastica, MSV, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
   
       const existingStudent = await Elev.findOne({ IDNP: idnp });
   
@@ -337,6 +370,10 @@ class authController{
       existingStudent.Chimia = Chimia;
       existingStudent.Fizica = Fizica;
       existingStudent.Ed_Fiz = Ed_Fiz;
+      existingStudent.Tehnologica = Tehnologica;
+      existingStudent.Muzica = Muzica;
+      existingStudent.Plastica = Plastica;
+      existingStudent.MSV = MSV;
       existingStudent.Stiinte = Stiinte;
       existingStudent.Engleza = Engleza;
       existingStudent.Biologia = Biologia;
@@ -446,12 +483,12 @@ class authController{
 // ----------------------------------------------------------------------------------------------------------sem2
 async addstudent2 (req, res) {
   try {
-      const {IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
+      const {IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Tehnologica, Muzica, Plastica, MSV, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
                 const existingStudent = await Elev2.findOne({IDNP});
                 if (existingStudent) {
                   return res.status(400).json({ error: 'Student '+`${Name+' '+Surname}` +' with idnp '+ `${IDNP}` + ' already exists '  });
                 }
-                const student = new Elev2({IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional});
+                const student = new Elev2({IDNP, Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Tehnologica, Muzica, Plastica, MSV, Stiinte, Engleza, Biologia, Rusa, Optional});
                 await student.save();
                 return res.json({message: "Elev succes aded !!!"})
   }catch (error) {
@@ -462,7 +499,7 @@ async addstudent2 (req, res) {
 async postElev2(req, res) {
   try {
     const { idnp } = req.params;
-    const { Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
+    const { Name, Surname, Class, Romana, Mate, Info, Istoria, Geografia, Chimia, Fizica, Ed_Fiz, Tehnologica, Muzica, Plastica, MSV, Stiinte, Engleza, Biologia, Rusa, Optional } = req.body;
 
     const existingStudent = await Elev2.findOne({ IDNP: idnp });
 
@@ -480,6 +517,10 @@ async postElev2(req, res) {
     existingStudent.Geografia = Geografia;
     existingStudent.Chimia = Chimia;
     existingStudent.Fizica = Fizica;
+    existingStudent.Tehnologica = Tehnologica;
+    existingStudent.Muzica = Muzica;
+    existingStudent.Plastica = Plastica;
+    existingStudent.MSV = MSV;
     existingStudent.Ed_Fiz = Ed_Fiz;
     existingStudent.Stiinte = Stiinte;
     existingStudent.Engleza = Engleza;
@@ -631,6 +672,10 @@ async getElevi2(req, res){
           existingStudent.Geografia = await GetMedia(oldStudent.Geografia);
           existingStudent.Chimia = await GetMedia(oldStudent.Chimia);
           existingStudent.Fizica = await GetMedia(oldStudent.Fizica);
+          existingStudent.Tehnologica = await GetMedia(oldStudent.Tehnologica);
+          existingStudent.Muzica = await GetMedia(oldStudent.Muzica);
+          existingStudent.Plastica = await GetMedia(oldStudent.Plastica);
+          existingStudent.MSV = await GetMedia(oldStudent.MSV);
           existingStudent.Ed_Fiz = await GetMedia(oldStudent.Ed_Fiz);
           existingStudent.Stiinte = await GetMedia(oldStudent.Stiinte);
           existingStudent.Engleza = await GetMedia(oldStudent.Engleza);
@@ -649,6 +694,10 @@ async getElevi2(req, res){
           const geografiaMedia = await GetMedia(oldStudent.Geografia);
           const chimiaMedia = await GetMedia(oldStudent.Chimia);
           const fizicaMedia = await GetMedia(oldStudent.Fizica);
+          const tehnologicaMedia = await GetMedia(oldStudent.Tehnologica);
+          const muzicaMedia = await GetMedia(oldStudent.Muzica);
+          const plasticaMedia = await GetMedia(oldStudent.Plastica);
+          const MSVMedia = await GetMedia(oldStudent.MSV);
           const edFizMedia = await GetMedia(oldStudent.Ed_Fiz);
           const francezaMedia = await GetMedia(oldStudent.Stiinte);
           const englezaMedia = await GetMedia(oldStudent.Engleza);
@@ -669,6 +718,10 @@ async getElevi2(req, res){
             Chimia: chimiaMedia,
             Fizica: fizicaMedia,
             Ed_Fiz: edFizMedia,
+            Tehnologica: tehnologicaMedia,
+            Muzica: muzicaMedia,
+            Plastica: plasticaMedia,
+            MSV: MSVMedia,
             Stiinte: francezaMedia,
             Engleza: englezaMedia,
             Biologia: biologiaMedia,
