@@ -17,7 +17,7 @@ const ElevMedie2 = new Schema({
     Muzica: {type: String, required: false},
     Plastica: {type: String, required: false},
     Stiinte: {type: String, required: false},
-    Optional: {type: String, required: false},
+    MSV: {type: String, required: false},
     Engleza: {type: String, required: false},
     Biologia: {type: String, required: false},
     Rusa: {type: String, required: false},
