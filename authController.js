@@ -719,7 +719,7 @@ async getElevi2(req, res){
             Tehnologica: tehnologicaMedia,
             Muzica: muzicaMedia,
             Plastica: plasticaMedia,
-            MSV: OptionalMedia,
+            MSV: MSVMedia,
             Stiinte: francezaMedia,
             Engleza: englezaMedia,
             Biologia: biologiaMedia,
