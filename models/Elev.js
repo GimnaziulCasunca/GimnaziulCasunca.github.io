@@ -20,6 +20,7 @@ const Elev = new Schema({
     MSV: {type: String, required: false},
     Engleza: {type: String, required: false},
     Biologia: {type: String, required: false},
+    Optional: {type: String, required: false},
     Rusa: {type: String, required: false}
 });
 

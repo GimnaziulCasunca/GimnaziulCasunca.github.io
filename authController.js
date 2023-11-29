@@ -125,7 +125,6 @@ class authController{
             student.Chimia = null;
             student.Info = null;
             student.Stiinte = null;
-            student.Optional = null;
             await student.save();
           } else if (student.Class === 9) {
             await Elev.deleteOne(student);
